@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
 
-public class AutomationFormTest {
+public class AutomationFormTest extends BaseTest {
 
     @Test
     @DisplayName("Fill form with correct data test")
