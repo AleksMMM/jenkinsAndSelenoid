@@ -101,7 +101,7 @@ public class RegistrationFormPage {
     }
 
     public RegistrationFormPage openForm() {
-        open("/automation-practice-form");
+        open("https://demoqa.com/automation-practice-form");
         formWrapper.shouldHave(text(TITLE_TEXT));
         executeJavaScript("$('footer').remove()");
         return this;
