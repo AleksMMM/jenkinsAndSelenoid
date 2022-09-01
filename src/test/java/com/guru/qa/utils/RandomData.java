@@ -60,7 +60,7 @@ public class RandomData {
     }
 
     public String getPictureName() {
-        return "flowerdog.jpg";
+        return "test_image.png";
     }
 
     public String getCurrentAddress() {
