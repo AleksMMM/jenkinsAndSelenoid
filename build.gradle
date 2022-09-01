@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.10.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+def allureVersion = "2.19.0"
+
+allure {
+    report {
+        version.set(allureVersion)
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set(allureVersion)
+            }
+        }
+    }
+}
+
+dependencies {
+    testImplementation (
+            'org.junit.jupiter:junit-jupiter:5.9.0',
+            'com.codeborne:selenide:6.7.3',
+            'org.slf4j:slf4j-simple:2.0.0',
+            'com.github.javafaker:javafaker:1.0.2',
+            "io.qameta.allure:allure-selenide:$allureVersion"
+    )
+    testRuntimeOnly('org.aspectj:aspectjweaver:1.9.9.1')
+}
+
+test {
+    useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+
+}
+test {
+    useJUnitPlatform()
+}
